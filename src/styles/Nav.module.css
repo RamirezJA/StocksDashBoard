@@ -1,6 +1,6 @@
 .nav {
   color: #000000;
-  border: 2px solid #01bcd3;
+
   padding: 0 15px;
   margin: 20px;
 }
@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .menu li {
@@ -15,9 +16,23 @@
 }
 
 .link {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
 }
 
-.icon {
+.home,
+.about {
+  border: 5px solid #000000;
+  padding: 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: #01bcd3;
+  transition: all 1s ease;
+}
+.home:hover,
+.home:focus,
+.about:hover,
+.about:focus {
+  background-color: #002b31;
 }

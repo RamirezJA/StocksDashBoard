@@ -1,5 +1,7 @@
 import styles from "../styles/Nav.module.css"
 import Link from "next/link"
+import Image from "next/image"
+import icon from "../../public/coin.svg"
 
 export default function Nav() {
   return (
@@ -12,11 +14,11 @@ export default function Nav() {
             </Link>
           </li>
           <li className={styles.icon}>
-            <Link href='/about' className={styles.link}>
-              Image
+            <Link href='/about'>
+              <Image src={icon} alt='icon' />
             </Link>
           </li>
-          <li>
+          <li className={styles.about}>
             <Link href='/about' className={styles.link}>
               About
             </Link>
