@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 3px solid black;
+}
+
+.ch1 {
+  border: 3px solid black;
+}
+.ch2 {
+  border: 3px solid black;
+}
+.ch3 {
+  border: 3px solid black;
+}
+.ch4 {
+  border: 3px solid black;
+}
+.ch4 {
+  border: 3px solid black;
+}
+.ch5 {
+  border: 3px solid black;
+}

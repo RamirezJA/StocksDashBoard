@@ -13,7 +13,6 @@ body {
   line-height: 1.8;
   min-height: 100vh;
   background-color: #f2f2f2;
-  min-height: -webkit-fill-available;
 }
 
 a {
