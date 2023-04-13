@@ -10,7 +10,7 @@ export default function Nav() {
         <ul className={styles.menu}>
           <li className={styles.home}>
             <Link href='/' className={styles.link}>
-              Stock DashBoard
+              DashBoard
             </Link>
           </li>
           <li className={styles.icon}>
