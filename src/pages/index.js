@@ -1,9 +1,11 @@
 import styles from "../styles/home.module.css"
 import Stock from "./stock"
+import Search from "./search"
 
 export default function Home() {
   return (
     <>
+      <Search />
       <div className={styles.container}>
         <div className={styles.ch1}>
           <Stock />
