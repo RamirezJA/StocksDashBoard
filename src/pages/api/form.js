@@ -1,16 +1,31 @@
-export default function handler(req,res){
-    //Get data submitted in reqs body
-    const body = req.body
+export default async function handler(req, res) {
+  //Get data submitted in reqs body
 
-    //Output log
-    console.log('body: ', body)
+  const stock = req.body.stock
 
-    if(!body.stock){
-        return res.status(400).json({data:'Stock not found'})
-    }
+  //Output log
+  console.log(stock)
 
-    //Found the Stock
-    //Sends an HTTP success code
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_Yahoo_ID,
+      "X-RapidAPI-Host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+    },
+  }
 
-    res.status(200).json({data: `${body.stock}`})
+  try {
+    const response = await fetch(
+      `https://apidojo-yahoo-finance-v1.p.rapidapi.com/auto-complete?q=${stock}&region=US`,
+      options
+    )
+
+    const data = await response.json()
+    console.log(data.quotes[0])
+
+    res.status(200).json(data)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: "Internal Server Error" })
+  }
 }

@@ -15,7 +15,7 @@ export default async (req, res) => {
 
     const data = await response.json()
 
-    res.status(200).json({ text: `${data.price.regularMarketPrice.fmt}` })
+    res.status(200).json(data)
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: "Internal Server Error" })
