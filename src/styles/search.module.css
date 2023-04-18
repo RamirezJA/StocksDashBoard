@@ -21,5 +21,6 @@
 }
 
 .ch1 {
-  border: 3px solid black;
+  border: 3px solid rgb(31, 8, 234);
+  padding: 10px;
 }

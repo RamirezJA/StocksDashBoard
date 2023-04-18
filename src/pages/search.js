@@ -6,6 +6,7 @@ export default function Search() {
   const [stockName, setStockName] = useState("")
   const [stockNews, setStockNews] = useState("")
   const [imageNews, setImageNews] = useState("")
+  const [stockSymbol, setSymbol] = useState("")
 
   //handles the submit event
   const handleSubmit = async (event) => {
@@ -45,10 +46,12 @@ export default function Search() {
     const name = result.quotes[0].shortname
     const news = result.news[0].title
     const pic = result.news[0].thumbnail.resolutions[0].url
+    const symbol = result.quotes[0].symbol
     console.log(pic)
     setStockName(name)
     setStockNews(news)
-    //setImageNews(pic)
+    setImageNews(pic)
+    setSymbol(symbol)
     console.log(result)
   }
 
@@ -61,10 +64,13 @@ export default function Search() {
           <button type='submit'>Submit</button>
         </form>
       </div>
+
       <div className={styles.container}>
         <div className={styles.ch1}>
           <h1>{stockName}</h1>
           <h2>{stockNews}</h2>
+          <h3>{stockSymbol}</h3>
+          <Image src={imageNews} alt='Stock News' width={140} height={140} />
         </div>
       </div>
     </>
