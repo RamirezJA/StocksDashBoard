@@ -7,6 +7,7 @@ export default function Search() {
   const [stockNews, setStockNews] = useState("")
   const [imageNews, setImageNews] = useState("")
   const [stockSymbol, setSymbol] = useState("")
+  const [quotesData, setQuotesData] = useState("")
 
   //handles the submit event
   const handleSubmit = async (event) => {
@@ -43,16 +44,18 @@ export default function Search() {
     //Get the response data from server as JSON
     //if server returns stock submitted, that means the form works
     const result = await response.json()
-    const name = result.quotes[0].shortname
-    const news = result.news[0].title
-    const pic = result.news[0].thumbnail.resolutions[0].url
-    const symbol = result.quotes[0].symbol
-    console.log(pic)
+    const name = result.data.quotes[0].shortname
+    const news = result.data.news[0].title
+    const pic = result.data.news[0].thumbnail.resolutions[0].url
+    const symbol = result.data.quotes[0].symbol
+    const price = result.quotesData.quoteResponse.result[0].regularMarketPrice
+    //console.log(price)
     setStockName(name)
     setStockNews(news)
     setImageNews(pic)
     setSymbol(symbol)
-    console.log(result)
+    setQuotesData(price)
+    //console.log(result)
   }
 
   return (
@@ -67,7 +70,9 @@ export default function Search() {
 
       <div className={styles.container}>
         <div className={styles.ch1}>
-          <h1>{stockName}</h1>
+          <h1>
+            {stockName} Price: {quotesData}
+          </h1>
           <h2>{stockNews}</h2>
           <h3>{stockSymbol}</h3>
           <Image src={imageNews} alt='Stock News' width={140} height={140} />

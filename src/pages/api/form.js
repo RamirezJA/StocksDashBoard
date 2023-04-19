@@ -19,11 +19,21 @@ export default async function handler(req, res) {
       `https://apidojo-yahoo-finance-v1.p.rapidapi.com/auto-complete?q=${stock}&region=US`,
       options
     )
-
+    //Data for autoComplete req
     const data = await response.json()
     console.log(data.quotes[0])
+    const quoteName = data.quotes[0].symbol
 
-    res.status(200).json(data)
+    //Data for quotes
+    const quotesResponse = await fetch(
+      `https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=${quoteName}`,
+      options
+    )
+
+    const quotesData = await quotesResponse.json()
+    console.log(quotesData)
+
+    res.status(200).json({ data, quotesData })
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: "Internal Server Error" })
