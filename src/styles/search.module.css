@@ -14,13 +14,34 @@
   border-radius: 5px;
 }
 .container {
+  padding-left: 60px;
+  border: 3px solid rgb(0, 0, 0);
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  border: 3px solid black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ch1 {
-  border: 3px solid rgb(31, 8, 234);
+  border: 3px solid rgb(0, 0, 0);
+  padding: 10px;
+
+  max-width: 70%;
+}
+
+.ch1 h2 {
+  padding: 10px;
+}
+.symbol {
+  display: flex;
+  flex-direction: row;
+  padding-left: 60px;
+}
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: #777 solid 2px;
+  margin: 10px;
   padding: 10px;
 }

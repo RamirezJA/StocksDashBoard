@@ -8,6 +8,7 @@ export default function Search() {
   const [imageNews, setImageNews] = useState("")
   const [stockSymbol, setSymbol] = useState("")
   const [quotesData, setQuotesData] = useState("")
+  const [resData, setResData] = useState("")
 
   //handles the submit event
   const handleSubmit = async (event) => {
@@ -49,12 +50,14 @@ export default function Search() {
     const pic = result.data.news[0].thumbnail.resolutions[0].url
     const symbol = result.data.quotes[0].symbol
     const price = result.quotesData.quoteResponse.result[0].regularMarketPrice
-    //console.log(price)
+    const resy = result.data.news
+    console.log(resy)
     setStockName(name)
     setStockNews(news)
     setImageNews(pic)
     setSymbol(symbol)
     setQuotesData(price)
+    setResData(resy)
     //console.log(result)
   }
 
@@ -67,16 +70,33 @@ export default function Search() {
           <button type='submit'>Submit</button>
         </form>
       </div>
+      <div className={styles.symbol}>
+        <div className={styles.content}>
+          <div>
+            <h3>{stockSymbol}</h3>
+          </div>
+          <div>
+            <h1>{stockName}</h1>
+          </div>
+          <div>
+            <h2>{quotesData}</h2>
+          </div>
+        </div>
+      </div>
 
       <div className={styles.container}>
         <div className={styles.ch1}>
-          <h1>
-            {stockName} Price: {quotesData}
-          </h1>
+          <Image src={imageNews} alt='Stock News' width={200} height={140} />
           <h2>{stockNews}</h2>
-          <h3>{stockSymbol}</h3>
-          <Image src={imageNews} alt='Stock News' width={140} height={140} />
         </div>
+      </div>
+      <div className={styles.container}>
+        {Array.isArray(resData) &&
+          resData.map((story) => (
+            <div key={story.uuid} className={styles.ch1}>
+              <h1>{story.title}</h1>
+            </div>
+          ))}
       </div>
     </>
   )
