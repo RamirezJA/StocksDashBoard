@@ -85,16 +85,17 @@ export default function Search() {
       </div>
 
       <div className={styles.container}>
-        <div className={styles.ch1}>
-          <Image src={imageNews} alt='Stock News' width={200} height={140} />
-          <h2>{stockNews}</h2>
-        </div>
-      </div>
-      <div className={styles.container}>
         {Array.isArray(resData) &&
           resData.map((story) => (
             <div key={story.uuid} className={styles.ch1}>
               <h1>{story.title}</h1>
+              <h2>{story.publisher}</h2>
+              <Image
+                src={story.thumbnail.resolutions[0].url}
+                alt='Stock News'
+                width={200}
+                height={140}
+              />
             </div>
           ))}
       </div>
