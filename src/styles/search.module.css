@@ -23,19 +23,32 @@
 
 .ch1 {
   border: 3px solid rgb(229, 226, 226);
-  padding: 0px;
+  padding: 2px;
   display: flex;
   flex-direction: row;
-  max-width: 70%;
+  justify-content: flex-start;
+  min-width: 50%;
+  max-width: 50%;
   margin-top: 4px;
 }
 
+.pic {
+  min-width: 25%;
+  padding: 4px;
+}
+.title {
+  min-width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .ch1 h1 {
-  font-weight: 300;
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 .ch1 h2 {
-  font-weight: 100;
+  font-weight: 400;
   font-size: 17px;
 }
 .symbol {

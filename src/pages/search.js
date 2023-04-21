@@ -89,27 +89,31 @@ export default function Search() {
         {Array.isArray(resData) &&
           resData.map((story) => (
             <div key={story.uuid} className={styles.ch1}>
-              {story.thumbnail && story.thumbnail.resolutions ? (
-                <Image
-                  src={story.thumbnail.resolutions[1].url}
-                  alt='Stock News'
-                  className={styles.image}
-                  width={140}
-                  height={140}
-                />
-              ) : (
-                <Image
-                  src='https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'
-                  alt='Stock News Placeholder'
-                  className={styles.image}
-                  width={200}
-                  height={140}
-                />
-              )}
+              <div className={styles.pic}>
+                {story.thumbnail && story.thumbnail.resolutions ? (
+                  <Image
+                    src={story.thumbnail.resolutions[1].url}
+                    alt='Stock News'
+                    className={styles.image}
+                    width={140}
+                    height={140}
+                  />
+                ) : (
+                  <Image
+                    src='https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'
+                    alt='Stock News Placeholder'
+                    className={styles.image}
+                    width={200}
+                    height={140}
+                  />
+                )}
+              </div>
 
-              <Link href={story.link}>
-                <h1>{story.title}</h1> <h2> by {story.publisher}</h2>
-              </Link>
+              <div className={styles.title}>
+                <Link href={story.link}>
+                  <h1>{story.title}</h1> <h2> by {story.publisher}</h2>
+                </Link>
+              </div>
             </div>
           ))}
       </div>
