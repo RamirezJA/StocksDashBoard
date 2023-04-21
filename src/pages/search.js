@@ -1,6 +1,7 @@
 import styles from "../styles/search.module.css"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Search() {
   const [stockName, setStockName] = useState("")
@@ -88,14 +89,27 @@ export default function Search() {
         {Array.isArray(resData) &&
           resData.map((story) => (
             <div key={story.uuid} className={styles.ch1}>
-              <h1>{story.title}</h1>
-              <h2>{story.publisher}</h2>
-              <Image
-                src={story.thumbnail.resolutions[0].url}
-                alt='Stock News'
-                width={200}
-                height={140}
-              />
+              {story.thumbnail && story.thumbnail.resolutions ? (
+                <Image
+                  src={story.thumbnail.resolutions[1].url}
+                  alt='Stock News'
+                  className={styles.image}
+                  width={140}
+                  height={140}
+                />
+              ) : (
+                <Image
+                  src='https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'
+                  alt='Stock News Placeholder'
+                  className={styles.image}
+                  width={200}
+                  height={140}
+                />
+              )}
+
+              <Link href={story.link}>
+                <h1>{story.title}</h1> <h2> by {story.publisher}</h2>
+              </Link>
             </div>
           ))}
       </div>

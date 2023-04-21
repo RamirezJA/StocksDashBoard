@@ -15,7 +15,6 @@
 }
 .container {
   padding-left: 60px;
-  border: 3px solid rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,14 +22,21 @@
 }
 
 .ch1 {
-  border: 3px solid rgb(0, 0, 0);
-  padding: 10px;
-
+  border: 3px solid rgb(229, 226, 226);
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
   max-width: 70%;
+  margin-top: 4px;
 }
 
+.ch1 h1 {
+  font-weight: 300;
+  font-size: 2rem;
+}
 .ch1 h2 {
-  padding: 10px;
+  font-weight: 100;
+  font-size: 17px;
 }
 .symbol {
   display: flex;
@@ -43,5 +49,11 @@
   flex-direction: column;
   border: #777 solid 2px;
   margin: 10px;
+  padding: 10px;
+}
+
+.ch1 a {
+  color: inherit;
+  text-decoration: none;
   padding: 10px;
 }
