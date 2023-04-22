@@ -2,7 +2,6 @@ import styles from "../styles/search.module.css"
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import Graph from "./graph"
 
 export default function Search() {
   const [stockName, setStockName] = useState("")
